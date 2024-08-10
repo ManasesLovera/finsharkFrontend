@@ -11,7 +11,7 @@ const Search: React.FC<Props> = ({onSearchSubmit, search, handleSearchChange}: P
 
     return (
         <>
-            <form onSubmit={onSearchSubmit}>
+            <form className="searchBar" onSubmit={onSearchSubmit}>
                 <input type="text" value={search} onChange={handleSearchChange}/>
             </form>
         </>
