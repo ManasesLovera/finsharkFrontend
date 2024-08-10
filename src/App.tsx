@@ -5,7 +5,6 @@ import Footer from './Components/Footer/Footer';
 import Search from './Components/Search/Search';
 import { CompanySearch } from './company';
 import { searchCompanies } from './api';
-// import { AxiosResponse } from 'axios';
 
 function App() {
 
@@ -13,13 +12,17 @@ function App() {
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState('');
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   }
+  const onPortfolioCreate = (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log(e);
+  }
 
-  const onClick = async (e: SyntheticEvent) => {
+  const onSearchSubmit = async (e: SyntheticEvent) => {
+    e.preventDefault();
     try {
-
       const result = await searchCompanies(search) || {data: []};
       if (typeof result === 'string') {
         setSearchResult(result);
@@ -27,7 +30,6 @@ function App() {
       else if (Array.isArray(result.data)) {
         setSearchResult(result.data);
       }
-      console.log('Search result: ',searchResult);
     }
     catch(error:any) {
       setServerError(error.message);
@@ -37,8 +39,8 @@ function App() {
 
   return (
     <div className="App">
-      <Search onClick={onClick} search={search} handleChange={handleChange}/>
-      <CardList searchResults={searchResult} />
+      <Search onSearchSubmit={onSearchSubmit} search={search} handleSearchChange={handleSearchChange}/>
+      <CardList onPortfolioCreate={onPortfolioCreate} searchResults={searchResult} />
       {serverError && <h1>Unable to connect to API</h1>}
       <Footer />
     </div>
