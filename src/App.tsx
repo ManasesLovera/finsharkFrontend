@@ -6,6 +6,13 @@ import Search from './Components/Search/Search';
 import { CompanySearch } from './company';
 import { searchCompanies } from './api';
 import ListPortfolio from './Components/Portfolio/ListPortfolio/ListPortfolio';
+// import {
+//   useQuery,
+//   useMutation,
+//   useQueryClient,
+//   QueryClient,
+//   QueryClientProvider,
+// } from '@tanstack/react-query';
 
 function App() {
 
@@ -13,6 +20,8 @@ function App() {
   const [portfolioValues, setPortfolioValues] = useState<string[]>([]);
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState('');
+
+  // const query = useQuery( { queryKey: ['companies',search], queryFn:()=> searchCompanies } );
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -27,9 +36,8 @@ function App() {
 
   const onPortfolioDelete = (e: any) => {
     e.preventDefault();
-    //const removed = portfolioValues.filter( value => value != e.target[0].value);
-    console.log(e.target);
-    //setPortfolioValues(removed);
+    const removed = portfolioValues.filter( value => value !== e.target[0].value);
+    setPortfolioValues(removed);
   }
 
   const onSearchSubmit = async (e: SyntheticEvent) => {

@@ -9,8 +9,8 @@ const DeletePortfolio = ({onPortfolioDelete, portfolioValue}: Props) => {
     return (
         <>
             <form onSubmit={onPortfolioDelete}>
-                <input hidden={false} value={portfolioValue} />
-                <button onClick={e => onPortfolioDelete(e)}>X</button>
+                <input hidden={true} value={portfolioValue} />
+                <button>X</button>
             </form>
         </>
     )

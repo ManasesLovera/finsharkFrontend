@@ -13,9 +13,8 @@ const ListPortfolio = ({portfolioValues, onPortfolioDelete}: Props) => {
             <h3>My Portfolio</h3>
             <ul>
                 {portfolioValues &&
-                    portfolioValues.map( (portfolioValue, index) => {
+                    portfolioValues.map( (portfolioValue ) => {
                         return <CardPortfolio 
-                                    myKey={index}
                                     onPortfolioDelete={onPortfolioDelete} 
                                     portfolioValue={portfolioValue} />
                     })}
