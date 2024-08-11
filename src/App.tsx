@@ -5,7 +5,7 @@ import Footer from './Components/Footer/Footer';
 import Search from './Components/Search/Search';
 import { CompanySearch } from './company';
 import { searchCompanies } from './api';
-import ListPortfolio from './Components/ListPortfolio/ListPortfolio';
+import ListPortfolio from './Components/Portfolio/ListPortfolio/ListPortfolio';
 
 function App() {
 
@@ -23,6 +23,13 @@ function App() {
     if (exists) return;
     const updatedPortfolio = [...portfolioValues, e.target[0].value];
     setPortfolioValues(updatedPortfolio);
+  }
+
+  const onPortfolioDelete = (e: any) => {
+    e.preventDefault();
+    //const removed = portfolioValues.filter( value => value != e.target[0].value);
+    console.log(e.target);
+    //setPortfolioValues(removed);
   }
 
   const onSearchSubmit = async (e: SyntheticEvent) => {
@@ -48,7 +55,9 @@ function App() {
         onSearchSubmit={onSearchSubmit} 
         search={search} 
         handleSearchChange={handleSearchChange}/>
-      <ListPortfolio portfolioValues={portfolioValues}/>
+      <ListPortfolio 
+        portfolioValues={portfolioValues} 
+        onPortfolioDelete={onPortfolioDelete}/>
       <CardList 
         onPortfolioCreate={onPortfolioCreate} 
         searchResults={searchResult} />
