@@ -11,16 +11,14 @@ type Props = {
 
 const Card: React.FC<Props> = ({id, searchResult, onPortfolioCreate}: Props) : JSX.Element => {
     return (
-        <div className="card">
-            <img 
-                src=""
-                alt="company logo"
-            />
-            <div id={id} className="details">
-                <h2>{searchResult.name} ({searchResult.symbol})</h2>
-                <p>{searchResult.currency}</p>
-            </div>
-            <p className="info">{searchResult.exchangeShortName} - {searchResult.stockExchange}</p>
+        <div className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg md:flex-row"
+        key={id} id={id}>
+            <a href="" className="font-bold text-center text-veryDarkViolet md:text-left">
+                {searchResult.name} ({searchResult.symbol})
+                
+            </a>
+            <p className="text-black">{searchResult.currency}</p>
+            <p className="font-bold text-black">{searchResult.exchangeShortName} - {searchResult.stockExchange}</p>
             <AddPortfolio 
                 onPortfolioCreate={onPortfolioCreate} 
                 symbol={searchResult.symbol}/>

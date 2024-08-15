@@ -16,16 +16,16 @@ const Navbar = (props: Props) => {
                 <div className="flex items-center space-x-20">
                     <img src={logo} alt="logo finshark" />
                     <div className="font-bold lg:flex">
-                        <a href="" className="text-black hover:text-darkBlue">
+                        <a href="" className="text-black hover:text-blue-600">
                             Dashboard
                         </a>
                     </div>
                 </div>
                 <div className="lg:flex items-center space-x-6 text-back">
-                    <a href="" className="hover:text-darkBlue ">
+                    <a href="" className="hover:text-blue-500 ">
                         Login
                     </a>
-                    <a href="" className="bg-lightGreen px-8 py-3 font-bold rounded text-black  hover:opacity-70">
+                    <a href="" className="bg-green-400 px-8 py-3 font-bold rounded text-black  hover:opacity-70">
                         Signup
                     </a>
                 </div>

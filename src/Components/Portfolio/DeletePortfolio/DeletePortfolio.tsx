@@ -10,7 +10,9 @@ const DeletePortfolio = ({onPortfolioDelete, portfolioValue}: Props) => {
         <>
             <form onSubmit={onPortfolioDelete}>
                 <input hidden={true} value={portfolioValue} />
-                <button>X</button>
+                <button className="block w-full py-3 text-white duration-200 border rounded-lg bg-red-500 hover:text-red-500 hover:bg-white border-red-500">
+                    Remove
+                </button>
             </form>
         </>
     )
