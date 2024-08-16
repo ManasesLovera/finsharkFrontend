@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './finsharklogo.png';
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom'
 // import { useAuth } from '../../Context/useAuth';
 
@@ -14,11 +15,13 @@ const Navbar = (props: Props) => {
         <nav className="relative container mx-auto p-6">
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-20">
-                    <img src={logo} alt="logo finshark" />
-                    <div className="font-bold lg:flex">
-                        <a href="" className="text-black hover:text-blue-600">
-                            Dashboard
-                        </a>
+                    <Link to="/">  
+                        <img src={logo} alt="logo finshark" />
+                    </Link>
+                    <div className="font-bold lg:flex">  
+                        <Link to="/search" className="text-black hover:text-blue-600">
+                            Search
+                        </Link>
                     </div>
                 </div>
                 <div className="lg:flex items-center space-x-6 text-back">
