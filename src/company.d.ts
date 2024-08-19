@@ -26,7 +26,7 @@ export interface CompanySearch {
     description: string;
     ceo: string;
     sector: string;
-    counter: string;
+    country: string;
     fullTimeEmployees: string;
     phone: string;
     address: string;

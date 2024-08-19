@@ -25,10 +25,10 @@ const Navbar = (props: Props) => {
                     </div>
                 </div>
                 <div className="lg:flex items-center space-x-6 text-back">
-                    <a href="" className="hover:text-blue-500 ">
+                    <a href="/login" className="hover:text-blue-500 ">
                         Login
                     </a>
-                    <a href="" className="bg-green-400 px-8 py-3 font-bold rounded text-black  hover:opacity-70">
+                    <a href="/signup" className="bg-green-400 px-8 py-3 font-bold rounded text-black  hover:opacity-70">
                         Signup
                     </a>
                 </div>
